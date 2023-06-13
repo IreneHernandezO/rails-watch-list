@@ -4,7 +4,7 @@ class ListsController < ApplicationController
   end
 
   def show
-    id = params[id]
+    id = params[:id]
     @list = List.find(params[:id])
   end
 
@@ -21,6 +21,11 @@ class ListsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @list.destroy
+    redirect_to @lists
   end
 private
 def list_params

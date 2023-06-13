@@ -10,11 +10,16 @@ class BookmarksController < ApplicationController
     @bookmark.save
     @bookmark.list = @list
 
-    if bookmark.save
+    if @bookmark.save
       redirect_to @list
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @bookmark.destroy
+    redirect_to bookmark.list
   end
 
   private

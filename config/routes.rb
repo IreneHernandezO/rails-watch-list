@@ -6,9 +6,11 @@ Rails.application.routes.draw do
 
   #resources :movies, except: [:destroy ] do
   #resources :movies, only: [:index ] do
-  resources :lists, only [:new, :create, :show]
+  resources :lists, only: [:index, :new, :create, :show, :destroy] do
+    resources :bookmarks, only: [:new, :create]
+  end
+  resources :bookmarks, only: %i[destroy]
   #  resources :bookmarks, only: [:create, :new, :show, :destroy]
   #end
   #resources :movies, only: [:index, :show]
-  root to:"list#index"
 end
