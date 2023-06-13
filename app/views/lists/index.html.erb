@@ -1,15 +1,13 @@
- <h1>My lists </h1>
+ <h1 class="mx-auto" style="width: 200px"> My lists </h1>
 
- <ul>
+<ul class="list-group">
     <% @lists.each do |list| %>
-      <li>
+      <li class="list-group-item">
         <%= link_to "#{list.name}", list_path(list) %>
       </li>
     <% end %>
  </ul>
 
    <div class= "btn btn-success">
-
-    <%= link_to "Add a list", new_list_path %>
-
+      <%= link_to "Add a list", new_list_path %>
   </div>
